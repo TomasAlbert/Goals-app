@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import { connectDB } from "./config/db.js";
 import goalRoutes from "./routes/goalRoutes.js";
 import errorHandler from "./middleware/errorMiddleware.js";
 
@@ -16,5 +17,6 @@ app.use("/api/goals", goalRoutes);
 app.use(errorHandler);
 
 app.listen(port || 8000, () => {
+	connectDB();
 	console.log(`app is running ${port}`);
 });
