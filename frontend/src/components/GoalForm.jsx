@@ -6,7 +6,7 @@ const GoalForm = () => {
 
 	const dispatch = useDispatch();
 
-	const onSubmit = (e) => {
+	const onSubmit = async (e) => {
 		e.preventDefault();
 		dispatch(createGoal({ text }));
 		setText("");

@@ -16,33 +16,35 @@ const Header = () => {
 	};
 
 	return (
-		<header className="header">
-			<div className="logo">
-				<Link to={"/"}>Goals</Link>
-			</div>
-			<ul>
-				{user ? (
-					<li>
-						<button className="btn" onClick={logoutHandler}>
-							<FaSignOutAlt /> Logout
-						</button>
-					</li>
-				) : (
-					<>
+		<>
+			<header className="header">
+				<div className="logo">
+					<Link to={"/"}>Goals</Link>
+				</div>
+				<ul>
+					{user ? (
 						<li>
-							<Link to={"/login"}>
-								<FaSignInAlt /> Login
-							</Link>
+							<button className="btn" onClick={logoutHandler}>
+								<FaSignOutAlt /> Logout
+							</button>
 						</li>
-						<li>
-							<Link to={"/register"}>
-								<FaRegUserCircle /> Register
-							</Link>
-						</li>
-					</>
-				)}
-			</ul>
-		</header>
+					) : (
+						<>
+							<li>
+								<Link to={"/login"}>
+									<FaSignInAlt /> Login
+								</Link>
+							</li>
+							<li>
+								<Link to={"/register"}>
+									<FaRegUserCircle /> Register
+								</Link>
+							</li>
+						</>
+					)}
+				</ul>
+			</header>
+		</>
 	);
 };
 

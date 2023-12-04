@@ -7,6 +7,7 @@ const initialState = {
 	isSuccess: false,
 	isLoading: false,
 	message: "",
+	singleGoalLoading: false,
 };
 
 // Create goal

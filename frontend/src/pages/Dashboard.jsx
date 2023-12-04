@@ -1,10 +1,18 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Spinner from "../components/Spinner";
+import TopBarProgress from "react-topbar-progress-indicator";
 import GoalForm from "../components/GoalForm";
 import GoalItem from "../components/GoalItem";
 import { getGoals, reset } from "../redux/goalSlice";
+
+TopBarProgress.config({
+	barColors: {
+		0: "#fff",
+		"1.0": "#fff",
+	},
+	shadowBlur: 5,
+});
 
 const Dashboard = () => {
 	const navigate = useNavigate("");
@@ -26,11 +34,10 @@ const Dashboard = () => {
 			disptach(reset());
 		};
 	}, [user, navigate, disptach, isError, message]);
-	if (isLoading) {
-		return <Spinner />;
-	}
+
 	return (
 		<>
+			{isLoading ? <TopBarProgress /> : ""}
 			<section className="heading">
 				<h1>Welcome {user && user.name}</h1>
 				<p>Goals Dashboard</p>
@@ -40,7 +47,7 @@ const Dashboard = () => {
 				{goals.length > 0 ? (
 					<div className="goals">
 						{goals.map((goal) => (
-							<GoalItem key={goal._id} goal={goal} />
+							<GoalItem isLoading={isLoading} key={goal._id} goal={goal} />
 						))}
 					</div>
 				) : (
