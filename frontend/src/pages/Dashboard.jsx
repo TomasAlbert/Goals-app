@@ -47,7 +47,7 @@ const Dashboard = () => {
 				{goals.length > 0 ? (
 					<div className="goals">
 						{goals.map((goal) => (
-							<GoalItem isLoading={isLoading} key={goal._id} goal={goal} />
+							<GoalItem key={goal._id} goal={goal} />
 						))}
 					</div>
 				) : (

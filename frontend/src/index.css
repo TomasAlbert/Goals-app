@@ -200,3 +200,20 @@ h3 {
 		font-size: 1.5rem;
 	}
 }
+.goal {
+	animation: fade 0.8s;
+	transition: opacity 0.5s ease;
+}
+
+.goal.hidden {
+	opacity: 0;
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
