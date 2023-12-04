@@ -9,22 +9,22 @@ const GoalItem = ({ goal }) => {
 	const [isHidden, setIsHidden] = useState(false);
 
 	const handleDelete = () => {
-		// Add a fade-out effect by hiding the goal item first
 		setIsHidden(true);
 
-		// Dispatch the delete action after a delay (you can adjust the duration)
 		setTimeout(() => {
 			dispatch(deleteGoal(goal._id));
-		}, 500); // 500 milliseconds as an example, adjust as needed
+		}, 500);
 	};
 
 	return (
-		<div className={`goal ${isHidden ? "hidden" : ""}`}>
-			<h2>{goal.text}</h2>
-			<button onClick={handleDelete} className="close">
-				close
-			</button>
-			<small>Published: {timeAgo}</small>
+		<div className={`goal-wrapper ${isHidden ? "hidden" : ""}`}>
+			<div className="goal">
+				<h2>{goal.text}</h2>
+				<button onClick={handleDelete} className="close">
+					close
+				</button>
+				<small>Published: {timeAgo}</small>
+			</div>
 		</div>
 	);
 };

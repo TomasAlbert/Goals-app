@@ -39,8 +39,17 @@ const Dashboard = () => {
 		<>
 			{isLoading ? <TopBarProgress /> : ""}
 			<section className="heading">
-				<h1>Welcome {user && user.name}</h1>
-				<p>Goals Dashboard</p>
+				<h1 className="main-heading">
+					<div className="intro">
+						{String("Welcome, ")
+							.split("")
+							.map((char, index) => (
+								<span key={index}>{char}</span>
+							))}
+					</div>
+					<span className="name">{user && user.name}</span>
+				</h1>
+				<p>Your Dashboard</p>
 			</section>
 			<GoalForm />
 			<section className="content">

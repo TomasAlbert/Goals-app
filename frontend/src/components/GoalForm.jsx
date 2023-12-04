@@ -8,6 +8,8 @@ const GoalForm = () => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
+		if (text === "") return;
+
 		dispatch(createGoal({ text }));
 		setText("");
 	};
