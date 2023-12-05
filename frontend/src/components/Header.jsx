@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
 	const navigate = useNavigate();
+	const userLocation = window.location.href.slice(-5);
+
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.auth);
 
@@ -18,9 +20,7 @@ const Header = () => {
 	return (
 		<>
 			<header className="header">
-				<div className="logo">
-					<Link to={"/"}>Goals</Link>
-				</div>
+				<div className="logo">{userLocation === "login" ? <Link to={"#"}>Goals</Link> : <Link to={"/"}>Goals</Link>}</div>
 				<ul>
 					{user ? (
 						<li>

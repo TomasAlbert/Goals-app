@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteGoal } from "../redux/goalSlice";
+import { IoIosClose } from "react-icons/io";
 import { formatDistanceToNow } from "date-fns";
 import { useState } from "react";
 
@@ -21,7 +22,7 @@ const GoalItem = ({ goal }) => {
 			<div className="goal">
 				<h2>{goal.text}</h2>
 				<button onClick={handleDelete} className="close">
-					close
+					<IoIosClose />
 				</button>
 				<small>Published: {timeAgo}</small>
 			</div>

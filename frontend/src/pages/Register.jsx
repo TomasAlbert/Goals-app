@@ -57,7 +57,7 @@ const Register = () => {
 	return (
 		<>
 			<section className="heading">
-				<h1>
+				<h1 className="register">
 					<FaRegUserCircle /> Register
 				</h1>
 				<p>Please create account</p>

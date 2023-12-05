@@ -8,8 +8,8 @@ import { login, reset } from "../redux/authSlice";
 
 const Login = () => {
 	const [formData, setFormData] = useState({
-		email: "",
-		password: "",
+		email: "john@gmail.com",
+		password: "john",
 	});
 	const { email, password } = formData;
 
@@ -19,7 +19,6 @@ const Login = () => {
 	const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
 
 	useEffect(() => {
-		console.log("hello");
 		if (isError) {
 			toast.error(message);
 		}
@@ -38,7 +37,8 @@ const Login = () => {
 		}));
 	};
 
-	const formSubmitHandler = () => {
+	const formSubmitHandler = (e) => {
+		e.preventDefault();
 		const userData = {
 			email,
 			password,
@@ -53,7 +53,7 @@ const Login = () => {
 	return (
 		<>
 			<section className="heading">
-				<h1>
+				<h1 className="login">
 					<FaSignInAlt /> Login
 				</h1>
 				<p>Login and set up your goals</p>

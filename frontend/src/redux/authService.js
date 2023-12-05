@@ -16,7 +16,7 @@ const register = async (userData) => {
 		return res.data;
 	} catch (error) {
 		console.error("Registration error:", error);
-		throw error; // Rethrow the error to be caught by the calling function
+		throw error;
 	}
 };
 
@@ -28,9 +28,7 @@ const logout = () => {
 // Login user
 const login = async (userData) => {
 	try {
-		console.log("Sending registration request");
 		const res = await axios.post(API_URL + "login", userData);
-		console.log("login response:", res.data);
 
 		if (res.data) {
 			localStorage.setItem("user", JSON.stringify(res.data));
@@ -39,7 +37,7 @@ const login = async (userData) => {
 		return res.data;
 	} catch (error) {
 		console.error("Login error:", error);
-		throw error; // Rethrow the error to be caught by the calling function
+		throw error;
 	}
 };
 
